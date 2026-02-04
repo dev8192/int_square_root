@@ -9,10 +9,10 @@ function isqrt(num) {
     console.log(num.toString(16))
     if (num < 2n) return num
     // let prevGuess = num
-    // let prevGuess = 1n << (BigInt(num.toString(2).length) >> 1n)
+    let prevGuess = 1n << (BigInt(num.toString(2).length) >> 1n)
     // let prevGuess = 0x16a09e667f3bcc908n
     // let prevGuess = 0x16a09e667f3bcc908n - 1n
-    let prevGuess = 0x16a09e667f3bcc908n + 1n
+    // let prevGuess = 0x16a09e667f3bcc908n + 1n
     let newGuess = (prevGuess + num / prevGuess) >> 1n
     // let newGuess = (prevGuess + 1n) >> 1n
     // let newGuess = prevGuess >> 1n
@@ -34,13 +34,13 @@ function compute(num) {
     return fracPart
 }
 
-function test1() {
+function test() {
     const result = compute(2)
     console.log(result.toString(16))
     console.log(result === 0x6a09e667f3bcc908n)
 }
 
-function test() {
+function test1() {
     const result = isqrt(2n << 128n)
     console.log(result.toString(16))
     console.log(result === 0x16a09e667f3bcc908n)
